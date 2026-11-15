@@ -1,7 +1,10 @@
 # SIGNALINK
 > **"Bridging Hands, Connecting Voices."**
 
-SignaLink is an AI-powered communication assistant designed to bridge communication barriers between individuals who use sign language and those who do not understand it.
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/gvedanth0809/Signa-Linker)
+
+SignaLink is an open-source, AI-powered communication assistant designed to bridge communication barriers between individuals who use sign language and those who do not understand it.
 
 ---
 
@@ -15,6 +18,28 @@ SignaLink is an AI-powered communication assistant designed to bridge communicat
 - **Two-Way Communication:** Non-signers can type responses back, enabling natural bidirectional conversation.
 - **AI-Powered Language Assistant:** Optional Gemma/Ollama integration to polish raw sign sequences into natural, polite sentences.
 - **Learning & Practice Mode:** Visual dictionary cards displaying hand gestures and guidance for students and beginners.
+
+---
+
+## ☁️ One-Click Cloud Deployment (Render)
+
+This repository includes a `render.yaml` blueprint ready for 1-click deployment on Render's free tier.
+
+### Option A: Blueprints (Automated)
+1. Sign up or log into [Render.com](https://render.com).
+2. Go to **Blueprints** > **New Blueprint Instance**.
+3. Connect your repository: `https://github.com/gvedanth0809/Signa-Linker`.
+4. Render automatically configures the frontend and backend services defined in `render.yaml`.
+5. Click **Apply** to generate your live public demo URL!
+
+### Option B: Single Unified Web Service (Simplest Free Tier)
+1. In Render, select **New +** > **Web Service**.
+2. Connect `gvedanth0809/Signa-Linker`.
+3. Configure:
+   - **Environment:** `Python`
+   - **Build Command:** `pip install -r backend/requirements.txt && cd frontend && npm install && npm run build`
+   - **Start Command:** `uvicorn backend.app.main:app --host 0.0.0.0 --port $PORT`
+4. Click **Create Web Service**. Your live demo will be accessible immediately over HTTPS.
 
 ---
 
@@ -33,7 +58,7 @@ Text-to-Speech <── Transcript Panel <── Prediction Card <── ML Class
 
 ---
 
-## 🚀 Quick Start Guide
+## 🚀 Local Quick Start
 
 ### 1. Prerequisites
 - Python 3.10+
@@ -41,17 +66,15 @@ Text-to-Speech <── Transcript Panel <── Prediction Card <── ML Class
 
 ### 2. Backend Setup
 ```bash
-# In project root
 python -m venv venv
 # On Windows:
 .\venv\Scripts\activate
-# Install backend dependencies
 pip install -r backend/requirements.txt
 
 # Start FastAPI backend
 uvicorn backend.app.main:app --host 127.0.0.1 --port 8000 --reload
 ```
-API Documentation will be available at: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
+API Documentation: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
 
 ### 3. Frontend Setup
 ```bash
@@ -59,7 +82,7 @@ cd frontend
 npm install
 npm run dev
 ```
-Open [http://localhost:5173](http://localhost:5173) in Chrome or any modern browser with webcam permissions enabled.
+Open [http://localhost:5173](http://localhost:5173) in your browser.
 
 ---
 
@@ -83,3 +106,8 @@ python training/evaluate_model.py
 - **Local Processing:** Camera frames are processed strictly in the client's browser memory via MediaPipe. No video streams are saved to disk or transmitted to third-party servers.
 - **Permission Control:** Webcam feeds can be initiated and paused anytime with the explicit Start/Stop controls.
 - **Responsible Assistive Tech:** Clearly identifies recognized vocabulary while safely discarding ambiguous gestures.
+
+---
+
+## 📄 License
+This project is open source under the [MIT License](LICENSE).
