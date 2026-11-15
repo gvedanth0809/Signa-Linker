@@ -1,0 +1,31 @@
+# Node & Frontend
+node_modules/
+frontend/node_modules/
+frontend/dist/
+dist/
+.env
+.env.local
+
+# Python & ML
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.coverage
+htmlcov/
+venv/
+env/
+ENV/
+
+# Data & Privacy
+data/raw/*.mp4
+data/raw/*.avi
+data/raw/*.mov
+data/raw/*_private/
+
+# IDE & OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
